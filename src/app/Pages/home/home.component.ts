@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { StringMapWithRename } from '@angular/compiler/src/compiler_facade_interface';
+import { Component, OnInit,Input } from '@angular/core';
 import { Router } from '@angular/router';
-//import { HostListener } from '@angular/core';
+import { Person } from 'src/app/Models/persondetails';
+import { GetdataService } from 'src/app/Services/getdata.service';
+import {HttpClient,HttpHeaders} from '@angular/common/http';
 
 
 
@@ -12,19 +15,23 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
 user:string='';
+result:string;
+persons:Person[]=[];
 
-// @HostListener('window:unload', ['$event'])
-//     unloadHandler() {
-//         window.sessionStorage.clear();
-//     }
-
-  constructor(public router:Router) { }
+  constructor(public router:Router,private getdata:GetdataService,private http:HttpClient) { }
 
   ngOnInit(): void {
     if(sessionStorage.getItem('user')!="ben"){
       alert("unauthorized");
+
       this.router.navigate(['']);
     }
-  }
+    else{
+      //alert(this.getdata.getPersons());
 
+console.log("Yes yes yes");
+//console.log();
+this.getdata.getPersons()
+    }
+  }
 }
