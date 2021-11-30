@@ -8,7 +8,7 @@ import { Person } from 'src/app/Models/persondetails';
 })
 export class PersonlistComponent implements OnInit {
 
-  @Input() person:Person;
+  @Input() person:any;
   constructor() { }
 
   ngOnInit(): void {
