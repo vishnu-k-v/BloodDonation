@@ -19,6 +19,8 @@ import { HomeComponent } from './Pages/home/home.component';
 import { PersonlistComponent } from './Pages/personlist/personlist.component';
 import { AddpersonComponent } from './Pages/addperson/addperson.component';
 import { DatePipe } from '@angular/common';
+import { HeaderComponent } from './Pages/header/header.component';
+import { FooterComponent } from './Pages/footer/footer.component';
 
 
 
@@ -34,7 +36,9 @@ const appRoutes:Routes=[
     LoginComponent,
     HomeComponent,
     PersonlistComponent,
-    AddpersonComponent
+    AddpersonComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
