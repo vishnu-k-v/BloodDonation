@@ -8,20 +8,17 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-addperson',
   templateUrl: './addperson.component.html',
-  styleUrls: ['./addperson.component.css']
+  styleUrls: ['./addperson.component.css'],
 })
 export class AddpersonComponent implements OnInit {
+  myDate = new Date();
+  day: string;
+  month: string;
+  year: string;
+  constructor(private http: HttpClient, private datepipe: DatePipe) {}
 
-  myDate=new Date();
-  day:string;
-  month:string;
-  year:string;
-  constructor(private http:HttpClient,private datepipe:DatePipe) { 
-   
-  }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
 
   SavePerson(personData:{name:string;
   age:string;
@@ -42,6 +39,5 @@ export class AddpersonComponent implements OnInit {
       alert("Record added successfully");
 console.log(Response);
     });
-
   }
 }
