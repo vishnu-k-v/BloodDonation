@@ -2,13 +2,16 @@
     <div class="row">
         <div *ngFor="let item of person" class="col-sm-3">
             <div class="card text-black bg-warning mb-3" style="max-width: 18rem;">
-                <div class="card-header">Last Donation Date: {{item.donationdate}}</div>
+                <div class="card-header">Last Donation Date: {{item?.donationdate}}</div>
                 <div class="card-body">
-                    <h5 class="card-title">Name: {{item.name|uppercase}}</h5>
-                    <p class="card-text">Blood Group: {{item.bloodgroup}}</p>
-                    <p class="card-text">Age: {{item.age}}</p>
+                    <h5 class="card-title">Name: {{item?.name|uppercase}}</h5>
+                    <p class="card-text">Blood Group: {{item?.bloodgroup}}</p>
+                    <p class="card-text">Age: {{item?.age}}</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<div>
+    <label></label>
 </div>

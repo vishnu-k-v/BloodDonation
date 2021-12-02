@@ -1,11 +1,11 @@
-import { StringMapWithRename } from '@angular/compiler/src/compiler_facade_interface';
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+//import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { Person } from 'src/app/Models/persondetails';
 import { GetdataService } from 'src/app/Services/getdata.service';
-import {HttpClient,HttpHeaders} from '@angular/common/http';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { map } from 'rxjs/operators';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBYf3BuD9hLhP8DLHgz73-Jl-qCCamPQDA",
@@ -27,25 +27,45 @@ const firebaseConfig = {
 })
 export class HomeComponent implements OnInit {
 
-user:string='';
-result:string;
-person:any[];
+  user: string = '';
+  result: string;
+  getUrl = 'https://blooddonationaapi-default-rtdb.asia-southeast1.firebasedatabase.app/person.json/';
+  person: any;
 
-
-  constructor(public router:Router,private getdata:GetdataService,private http:HttpClient,public db:AngularFireDatabase) {}
+  constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
-    if(sessionStorage.getItem('user')!="ben"){
+    if (sessionStorage.getItem('user') != "ben") {
       alert("unauthorized");
 
       this.router.navigate(['']);
     }
-    else{
-      this.db.list('/person').valueChanges().subscribe(person=>{this.person=person;
-      console.log(this.person);
-      });
+    else {
 
-      
+      // this.db.list('/person').valueChanges().subscribe(person=>{this.person=person;
+      //   console.log("fetched");
+      // console.log(person);
+      // console.log("fetched");
+      // });
+      this.onLoad();
     }
+  }
+
+  onLoad(){
+    this.http.get<Person<any>>(this.getUrl)
+    .pipe(map(resData=>{
+      const personArray=[];
+      for(const key in resData){
+          
+        personArray.push({id:key,...resData[key]});
+      }
+      console.log("success");
+      console.log(personArray);
+      return personArray;
+    }))
+      .subscribe(person => {
+        this.person = person;
+        //console.log(persons);
+      });
   }
 }
