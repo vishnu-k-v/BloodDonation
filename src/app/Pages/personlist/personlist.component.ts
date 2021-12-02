@@ -18,12 +18,7 @@ export class PersonlistComponent implements OnInit {
 
   ngOnInit(): void {
   this.service.getMessage().subscribe(message=>{
-    // console.log("personlist");
-    // console.log(message);
-    // console.log("personlist");
-    // alert("enter");
     this.onLoad();
-
   })
   }
 
@@ -45,4 +40,8 @@ export class PersonlistComponent implements OnInit {
       });
   }
 
+  PopulatePerson(item:any){
+    //alert("div clicked"+item.name);
+    this.service.sendMessage(item);
+  }
 }

@@ -41,12 +41,6 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['']);
     }
     else {
-
-      // this.db.list('/person').valueChanges().subscribe(person=>{this.person=person;
-      //   console.log("fetched");
-      // console.log(person);
-      // console.log("fetched");
-      // });
       this.onLoad();
     }
   }
@@ -56,16 +50,13 @@ export class HomeComponent implements OnInit {
     .pipe(map(resData=>{
       const personArray=[];
       for(const key in resData){
-          
         personArray.push({id:key,...resData[key]});
       }
-      console.log("success");
-      console.log(personArray);
       return personArray;
     }))
       .subscribe(person => {
         this.person = person;
-        //console.log(persons);
+        console.log(person);
       });
   }
 }

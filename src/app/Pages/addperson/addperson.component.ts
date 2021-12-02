@@ -1,6 +1,6 @@
-import { Component, OnInit,Output,EventEmitter } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit,Output,EventEmitter,ViewChild,ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { NgForm } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
@@ -9,7 +9,6 @@ import { Person } from 'src/app/Models/persondetails';
 import { map } from 'rxjs/operators';
 import { HomeComponent } from '../home/home.component';
 import { GetdataService } from 'src/app/Services/getdata.service';
-//import { TestBed } from '@angular/core/testing';
 
 @Component({
   selector: 'app-addperson',
@@ -24,11 +23,26 @@ export class AddpersonComponent implements OnInit {
   personData:any;
   person:any;
   getUrl = 'https://blooddonationaapi-default-rtdb.asia-southeast1.firebasedatabase.app/person.json/';
-  currentUrl = this.router.url;
+  @ViewChild('person') form: NgForm;
 
   constructor(private http: HttpClient, private datepipe: DatePipe,private router:Router,private service:GetdataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.service.getMessage().subscribe(message=>{
+      console.log("items recieved");
+      console.log(message.name);
+      console.log("items recieved");
+      this.form.controls['name'].setValue(message.name);
+      this.form.controls['address'].setValue(message.address);
+      this.form.controls['pincode'].setValue(message.pincode);
+      this.form.controls['age'].setValue(message.age);
+      this.form.controls['bloodgroup'].setValue(message.bloodgroup);
+      this.form.controls['mobile'].setValue(message.mobile);
+      this.form.controls['lblId'].setValue(message.id);
+      //this.form.controls['btnSubmit'].setValue('Update');
+    
+    });
+  }
 
   SavePerson(personData: {
     name: string;
@@ -39,10 +53,6 @@ export class AddpersonComponent implements OnInit {
     mobile: string;
     donationdate: string;
   },person:NgForm) {
-
-    // this.db.list('/person',ref=>ref.orderByValue().limitToLast(1)).valueChanges().subscribe(Response=>{
-    //   this.personData=Response[0];
-    //  });
 
      this.month = (this.myDate.getMonth() + 1).toString();
       this.day = this.myDate.getUTCDate().toString();
@@ -58,16 +68,8 @@ export class AddpersonComponent implements OnInit {
           console.log(Response);
           person.resetForm();
       
-         this.service.sendMessage('monuseee');
+         this.service.sendMessage('getData');//calling service to populate data
          
         });
-  }
-
-  showData(){
-    // this.http.get<Person<any>>(this.getUrl).subscribe(person=>{
-    //   this.person=person;
-    // });
-
-    
   }
 }

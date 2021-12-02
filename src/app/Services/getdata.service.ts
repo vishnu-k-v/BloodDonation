@@ -22,7 +22,7 @@ export class GetdataService {
 
   constructor(private http: HttpClient) { }
 
-  sendMessage(message: string) {
+  sendMessage(message: any) {
     this.subject.next(message);
   }
 
