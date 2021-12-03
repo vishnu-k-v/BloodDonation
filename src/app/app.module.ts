@@ -19,10 +19,9 @@ import { HomeComponent } from './Pages/home/home.component';
 import { PersonlistComponent } from './Pages/personlist/personlist.component';
 import { AddpersonComponent } from './Pages/addperson/addperson.component';
 import { DatePipe } from '@angular/common';
+import { PersonfilterComponent } from './pages/personfilter/personfilter.component';
 import { HeaderComponent } from './Pages/header/header.component';
 import { FooterComponent } from './Pages/footer/footer.component';
-
-
 
 const appRoutes:Routes=[
   {path:'',component:LoginComponent},
@@ -37,6 +36,7 @@ const appRoutes:Routes=[
     HomeComponent,
     PersonlistComponent,
     AddpersonComponent,
+    PersonfilterComponent
     HeaderComponent,
     FooterComponent
   ],

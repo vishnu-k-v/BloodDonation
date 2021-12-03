@@ -1,71 +1,53 @@
-<form #person="ngForm" (ngSubmit)="SavePerson(person.value)">
-  <div class="form-group">
-    <label for="inputEmail3" class="col-form-label">Name</label>
-    <input
-      type="text"
-      name="name"
-      class="form-control"
-      id="name"
-      placeholder="Name"
-      ngModel
-    />
-  </div>
-  <div class="form-group">
-    <label for="inputEmail3" class="col-form-label">Address</label>
-    <textarea
-      type=""
-      name="address"
-      class="form-control"
-      id="inputAddress"
-      placeholder="Address"
-      ngModel
-    ></textarea>
-  </div>
-  <div class="form-group">
-    <label for="inputEmail3" class="col-form-label">Pincode</label>
-    <input
-      type="text"
-      name="pincode"
-      class="form-control"
-      id="inputPincode"
-      placeholder="Pincode"
-      ngModel
-    />
-  </div>
-  <div class="form-group">
-    <label for="inputEmail3" class="col-form-label">Age</label>
-    <input
-      type="text"
-      name="age"
-      class="form-control"
-      id="inputAge"
-      placeholder="Age"
-      ngModel
-    />
-  </div>
-  <div class="form-group">
-    <label for="inputEmail3" class="col-form-label">Blood Group</label>
-    <input
-      type="text"
-      name="bloodgroup"
-      class="form-control"
-      id="inputBloodGroup"
-      placeholder="Blood Group"
-      ngModel
-    />
-  </div>
-  <div class="form-group">
-    <label for="inputEmail3" class="col-form-label">Mobile</label>
-    <input
-      type="mob"
-      name="mobile"
-      class="form-control"
-      id="inputMobile"
-      placeholder="Mobile Number"
-      ngModel
-    />
-  </div>
-  <div class="form-group my-4">
-    <input type="submit" value="Save" class="btn btn-primary mb-2 w-100" />
-  </div>
+<form #person="ngForm">
+
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+            <input type="text" name="name" class="form-control" id="name" placeholder="Name" ngModel>
+            <!-- <input type="text" name="id" id="id" ngModel/> -->
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Address</label>
+        <div class="col-sm-10">
+            <input type="text" name="address" class="form-control" id="inputAddress" placeholder="Address" ngModel>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Pincode</label>
+        <div class="col-sm-10">
+            <input type="text" name="pincode" class="form-control" id="inputPincode" placeholder="Pincode" ngModel>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Age</label>
+        <div class="col-sm-10">
+            <input type="text" name="age" class="form-control" id="inputAge" placeholder="Age" ngModel>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Blood Group</label>
+        <div class="col-sm-10">
+            <input type="text" name="bloodgroup" class="form-control" id="inputBloodGroup" placeholder="Blood Group"
+                ngModel>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Mobile</label>
+        <div class="col-sm-10">
+            <input type="text" name="mobile" class="form-control" id="inputMobile" placeholder="Mobile Number"
+                ngModel>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2">
+            <!-- <input type="submit" name="btnSubmit" value="Save" class="btn btn-primary mb-2" /> -->
+            <button type="submit" name="btnSubmit" class="btn btn-primary mb-2" (click)="SavePerson(person.value,person)">{{saveButtonText}}</button>
+            &nbsp;
+            <button name="btnReset" class="btn btn-primary mb-2" (click)="ClearFormValues()">Reset Values</button>
+            <input style="visibility: hidden;" type="text" name="lblId" ngModel/>
+        </div>
+        
+    </div>
 </form>
+
