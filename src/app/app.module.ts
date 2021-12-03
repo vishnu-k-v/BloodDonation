@@ -36,7 +36,7 @@ const appRoutes:Routes=[
     HomeComponent,
     PersonlistComponent,
     AddpersonComponent,
-    PersonfilterComponent
+    PersonfilterComponent,
     HeaderComponent,
     FooterComponent
   ],
