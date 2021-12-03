@@ -72,24 +72,42 @@ export class PersonlistComponent implements OnInit {
     //    console.log("SearchPerson");
     //  })
 
-    this.http.get<Person<any>>(this.getUrl)
-      .pipe(map(resData => {
-        const personArray = [];
-        for (const key in resData) {
-          personArray.push({ id: key, ...resData[key] });
-        }
-        return personArray;
-      }))
-      .subscribe(person => {
-        if (persondetail.personname == "") {
-          var data = person.filter(item => item.mobile == persondetail.personmobile);
-          this.person = data;
-        }
-        else if (persondetail.personmobile == "") {
-          var data = person.filter(item => item.name == persondetail.personname);
-          this.person = data;
-        }
-      });
+    // this.http.get<Person<any>>(this.getUrl)
+    //   .pipe(map(resData => {
+    //     const personArray = [];
+    //     for (const key in resData) {
+    //       personArray.push({ id: key, ...resData[key] });
+    //     }
+    //     return personArray;
+    //   }))
+    //   .subscribe(person => {
+    //     if (persondetail.personname == "") {
+    //       var data = person.filter(item => item.mobile == persondetail.personmobile);
+    //       this.person = data;
+    //     }
+    //     else if (persondetail.personmobile == "") {
+    //       var data = person.filter(item => item.name == persondetail.personname);
+    //       this.person = data;
+    //     }
+    //   });
 
+    if (persondetail.personname != "") {
+      this.db.object('/person').query.orderByChild('name').startAt(persondetail.personname).endAt(persondetail.personname+'\uf8ff').on('value', snap => {
+        const personArray = [];
+        for (const key in snap.val()) {
+          personArray.push({ id: key, ...snap.val()[key] })
+        }
+        this.person = personArray;
+      });
+    }
+    else if (persondetail.personmobile != "") {
+      this.db.object('/person').query.orderByChild('mobile').startAt(persondetail.personmobile).endAt(persondetail.personmobile+'\uf8ff').on('value', snap => {
+        const personArray = [];
+        for (const key in snap.val()) {
+          personArray.push({ id: key, ...snap.val()[key] })
+        }
+        this.person = personArray;
+      });
+    }
   }
 }

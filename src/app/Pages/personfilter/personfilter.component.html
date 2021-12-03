@@ -1,9 +1,9 @@
 <form #search="ngForm">
     <div class="container">
         <label>Person Name</label>
-        <input type="text" name="personname" ngModel/>
+        <input type="text" name="personname" placeholder="starts with.." ngModel/>
         <label>Mobile Number</label>
-        <input type="text" name="personmobile" ngModel/>
+        <input type="text" name="personmobile" placeholder="starts with.." ngModel/>
         <button name="btnSearch" (click)="SearchPerson(search.value)">Search</button>
         <button name="btnClearFilter" (click)="ClearFilter()">Clear Filter</button>
     </div>

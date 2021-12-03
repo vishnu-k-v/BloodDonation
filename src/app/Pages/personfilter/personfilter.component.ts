@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetdataService } from 'src/app/Services/getdata.service';
+import { NgForm } from '@angular/forms';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-personfilter',
@@ -7,6 +9,8 @@ import { GetdataService } from 'src/app/Services/getdata.service';
   styleUrls: ['./personfilter.component.css']
 })
 export class PersonfilterComponent implements OnInit {
+
+  @ViewChild('search') form: NgForm;
 
   constructor(private service: GetdataService) { }
 
@@ -29,6 +33,8 @@ export class PersonfilterComponent implements OnInit {
   ClearFilter() {
     this.service.sendMessageToChangeText('Save');
     this.service.sendMessagePopulateData('getData');
+    this.form.controls['personname'].setValue('');
+    this.form.controls['personmobile'].setValue('');
   }
 
 }
