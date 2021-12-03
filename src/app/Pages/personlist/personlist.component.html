@@ -1,9 +1,11 @@
 <div class="container">
     <div class="row">
         <div *ngFor="let item of person" class="col-sm-3">
-            <div class="card text-black bg-warning mb-3" style="max-width: 18rem; cursor: pointer;" (click)="PopulatePerson(item)">
-                <div class="card-header">Last Donation Date: {{item?.donationdate}}</div>
-                <div class="card-body">
+            <div class="card text-black bg-warning mb-3" style="max-width: 18rem;">
+                <div class="card-header">Last Donation Date: {{item?.donationdate}}
+                    <button class="close" (click)="DeletePerson(item)" >X</button>
+                </div>
+                <div class="card-body" style="cursor: pointer;" (click)="PopulatePerson(item)">
                     <h5 class="card-title">Name: {{item?.name|uppercase}}</h5>
                     <p class="card-text">Blood Group: {{item?.bloodgroup}}</p>
                     <p class="card-text">Age: {{item?.age}}</p>

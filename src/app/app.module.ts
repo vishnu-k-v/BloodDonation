@@ -19,6 +19,7 @@ import { HomeComponent } from './Pages/home/home.component';
 import { PersonlistComponent } from './Pages/personlist/personlist.component';
 import { AddpersonComponent } from './Pages/addperson/addperson.component';
 import { DatePipe } from '@angular/common';
+import { PersonfilterComponent } from './pages/personfilter/personfilter.component';
 
 
 
@@ -34,7 +35,8 @@ const appRoutes:Routes=[
     LoginComponent,
     HomeComponent,
     PersonlistComponent,
-    AddpersonComponent
+    AddpersonComponent,
+    PersonfilterComponent
   ],
   imports: [
     BrowserModule,

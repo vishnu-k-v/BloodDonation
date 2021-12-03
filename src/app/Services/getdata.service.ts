@@ -19,6 +19,9 @@ export class GetdataService {
   result: string;
   mess: string;
   private subject = new Subject<any>();
+  private subject2 = new Subject<any>();
+  private subject3 = new Subject<any>();
+  private subject4 = new Subject<any>();
 
   constructor(private http: HttpClient) { }
 
@@ -30,6 +33,29 @@ export class GetdataService {
     return this.subject.asObservable();
   }
 
+  sendMessageToChangeText(message: any) {
+    this.subject3.next(message);
+  }
+  getMessageToChangeText(): Observable<any> {
+    return this.subject3.asObservable();
+  }
+
+  sendMessagePopulateData(message: any) {
+    this.subject2.next(message);
+  }
+
+  getMessagePopulateData(): Observable<any> {
+    return this.subject2.asObservable();
+  }
+
+  sendMessageSearchPerson(message: any) {
+    this.subject4.next(message);
+  }
+
+  getMessageSearchPerson(): Observable<any> {
+    return this.subject4.asObservable();
+  }
+ 
   getPersons() {
     return this.http.get('https://blooddonationaapi-default-rtdb.asia-southeast1.firebasedatabase.app/person.json').subscribe(Response => {
       console.log(Response);

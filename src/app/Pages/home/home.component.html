@@ -1,33 +1,21 @@
 <!-- Image and text -->
 <div class="container bg-light">
-    <nav class="navbar navbar-light bg-light">
+  <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">
-      <img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+      <img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30"
+        class="d-inline-block align-top" alt="">
       Bootstrap
     </a>
   </nav>
-
-  </div>
-
-
-  <!-- <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Dropdown button
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-    </div>
-  </div> -->
-
-  <div class="container">
-    <app-addperson></app-addperson>
-  </div>
+</div>
+<br>
 <div class="container">
- 
-    <!-- <app-personlist *ngFor="let person of person" [person]="person"></app-personlist> -->
-    <app-personlist [person]="person"></app-personlist>
-
-  
+  <app-personfilter></app-personfilter>
+</div>
+<br>
+<div class="container">
+  <app-addperson></app-addperson>
+</div>
+<div class="container">
+  <app-personlist [person]="person"></app-personlist>
 </div>
