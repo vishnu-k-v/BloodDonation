@@ -1,7 +1,10 @@
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div *ngFor="let item of person" class="col-sm-3">
+          
             <div class="card text-black bg-warning mb-3" style="max-width: 18rem;">
+
+                <app-membercard [person]="item" ></app-membercard>
                 <div class="card-header">Last Donation Date: {{item?.donationdate}}
                     <button class="close" (click)="DeletePerson(item)" >X</button>
                 </div>
@@ -17,4 +20,10 @@
 </div>
 <div>
     <label></label>
+</div> -->
+
+
+<div class="row">
+<div *ngFor="let item of person" class="col-sm-3">
+<app-membercard [person]="item" ></app-membercard></div>
 </div>

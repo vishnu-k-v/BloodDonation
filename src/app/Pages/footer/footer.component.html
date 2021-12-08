@@ -1,20 +1,31 @@
 <div class="container bg-light">
+
   <nav class="menu">
-    <a href="#" class="menu-item">
-      <span class="material-icons">Games</span>
-      <span class="menu-item-label">Games</span>
+    <a [routerLink]="['/home']" class="menu-item">
+      <span class="material-icons">
+         <fa-icon [icon]="faHome"></fa-icon>
+        </span>
+      <span class="menu-item-label">Home</span>
     </a>
     <a href="#" class="menu-item">
-      <span class="material-icons">camera</span>
-      <span class="menu-item-label">Images</span>
+      <span class="material-icons">
+        <fa-icon [icon]="faUsers"></fa-icon>
+      </span>
+      <span class="menu-item-label">Members</span>
+    </a>
+    <a [routerLink]="['/Register']"  class="menu-item">
+      <span class="material-icons">
+        <fa-icon [icon]="faUserPlus"></fa-icon>
+      </span>
+      <span class="menu-item-label">Add Member</span>
     </a>
     <a href="#" class="menu-item">
-      <span class="material-icons">store</span>
-      <span class="menu-item-label">Movies</span>
-    </a>
-    <a href="#" class="menu-item">
-      <span class="material-icons">store</span>
-      <span class="menu-item-label">Store</span>
+      <span class="material-icons">
+        <fa-icon [icon]="faInfoCircle"></fa-icon>
+      </span>
+      <span class="menu-item-label">About</span>
     </a>
   </nav>
 </div>
+
+

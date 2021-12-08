@@ -1,0 +1,94 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1;
+}
+body {
+  background: #e7dcff;
+  background: linear-gradient(
+    120deg,
+    #e7dcff 0%,
+    rgba(255, 234, 203, 0.868785014) 59%,
+    #f6f1ff 100%
+  );
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.profile {
+  margin: auto;
+  background-color: #fff;
+  border-radius: 19px;
+  width: 300px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15) !important;
+}
+.profile .photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 30px;
+  border: 15px solid rgba(246, 242, 255, 0.7);
+  object-fit: cover;
+}
+.profile .name {
+  margin-top: 2px;
+  font-size: 22px;
+  font-weight: bold;
+}
+.profile .details {
+  font-size: 13px;
+  font-weight: 400;
+  width: 75%;
+  margin-top: 8px;
+  line-height: 1.3;
+  text-align: center;
+}
+.profile .buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+.profile .buttons .message {
+  background-color: #ffedd2;
+}
+.profile .buttons .follow {
+  background: linear-gradient(90deg, #fa3967 0%, #fa9639 100%);
+}
+.profile .buttons .button {
+  width: 186px;
+  height: 54px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  margin-left: 12px;
+  cursor: pointer;
+}
+.profile .buttons .button:first {
+  margin-left: 0px;
+}
+.profile .buttons .button svg {
+  height: 22px;
+  margin-right: 4px;
+}
+.sha {
+  box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15) !important;
+}
+.fix {
+  width: 30px;
+  height: 20px;
+}
